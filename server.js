@@ -9,13 +9,16 @@ const mongoose = require('mongoose');
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cors());
+  
+mongoose
+  .connect("mongodb+srv://nickflores34:KRYFDeI3iFZNbYtf@cluster0.c7trsao.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .then(() => {
+    console.log("connected to mongodb");
+  })
+  .catch((error) => {
+    console.log("couldn't connect to mongodb", error);
+  });
 
-mongoose.connect('mongodb://localhost/crafts', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
 
 
 const storage = multer.diskStorage({
