@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Assignment 18 - Server CRUD with MongoDB</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Buy and Sell Crafts
+        <button id="addCraftButton" class="add-button">+</button>
+    </h1>
+    <div class="gallery"></div>
+    <div id="myModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span onclick="document.getElementById('myModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <h2 id="modal-title"></h2>
+                <div id="modal-body"></div>
+                <a href="#" id="pencilIcon">&#9999;</a>
+                <a href="#" id="deleteCraftButton">&#10005;</a>
+            </div>
+        </div>
+    </div>
+    <div id="addItemModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <div class="w3-container">
+                <span onclick="hideAddItemModal()" class="w3-button w3-display-topright">&times;</span>
+                <h2 class="modal-heading">Make Changes to Your Craft</h2>
+                <form id="addItemForm" class="w3-container" enctype="multipart/form-data">
+                    <div style="display: flex;">
+                        <div style="flex: 1;">
+                            <img id="previewImage" src="https://place-hold.it/200x300" alt="Placeholder Image" style="width: 200px; height: 300px;">
+                            <br>
+                            <label for="itemImage">Select An Image:</label>
+                            <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+                        </div>
+                        <div style="flex: 2; padding-left: 20px;">
+                            <p>
+                                <label for="itemName">Name:</label>
+                                <input type="text" id="itemName" name="itemName" required>
+                            </p>
+                            <p>
+                                <label for="itemDescription" style="vertical-align: top;">Description:</label>
+                                <textarea id="itemDescription" name="itemDescription" required></textarea>
+                            </p>
+                            <div id="supplies">
+                                <div class="supply-container">
+                                    <label for="itemSupplies">Supplies:</label>
+                                    <input type="text" name="supply[]" required>
+                                    <button type="button" id="addSupplyButton">Add Supply</button>    
+                                </div>
+                            </div>
+                                                    
+                            <p>
+                                <button type="submit">Save</button>
+                                <button type="button" id="cancelButton">Cancel</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
